@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <title>Pregled Knjiga - Iznajmljene i Dostupne</title>
+    <link rel="stylesheet" href="library.css"> 
+</head>
+<body>
+    <h1>Pregled Knjiga</h1>
+
+    <div class="library-container">
+        <div class="iznajmljene-knjige">
+            <h2>Iznajmljene Knjige</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Naziv Knjige</th>
+                        <th>Datum Štampanja</th>
+                        <th>Akcija</th> </tr>
+                </thead>
+                <tbody id="iznajmljene-tijelo">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="dostupne-knjige" id="tabela-kolege">
+            <h2>Dostupne Knjige za Iznajmljivanje</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Naziv Knjige</th>
+                        <th>Popularnost</th>
+                        <th>Akcija</th> </tr>
+                </thead>
+                <tbody id="dostupne-tijelo">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="../admin/data/model.js"></script> 
+    <script src="library.js"></script>
+</body>
+</html>
