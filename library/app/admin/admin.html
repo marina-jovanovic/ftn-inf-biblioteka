@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel - Pregled Knjiga</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+    <h1>Administracija Knjiga</h1>
+
+    <div class="admin-container">
+        <div class="pregled-knjiga">
+            <h2>Pregled Knjiga</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Naziv Knjige</th>
+                        <th>Datum Štampanja</th>
+                        <th>Popularnost</th>
+                        <th>Akcija</th>
+                    </tr>
+                </thead>
+                <tbody id="knjige-tijelo">
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <script src="data/model.js"></script>
+    <script src="admin.js"></script>
+</body>
+
+</html>

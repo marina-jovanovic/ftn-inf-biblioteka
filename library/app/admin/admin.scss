@@ -1,0 +1,35 @@
+@import '../styles/global';
+
+.admin-container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 40px; 
+    padding: 20px;
+}
+
+.pregled-knjiga {
+    max-width: 600px; 
+}
+
+.dodavanje-knjige {
+    flex-shrink: 0;
+    width: 350px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    background-color: #f7f7f7;
+}
+
+.pregled-knjiga table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.pregled-knjiga th, .pregled-knjiga td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.pregled-knjiga th {
+    background-color: #eee;
+}
