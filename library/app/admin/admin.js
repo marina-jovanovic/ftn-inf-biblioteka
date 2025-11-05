@@ -42,6 +42,29 @@ const obrisiKnjigu = (idZaBrisanje) => {
     }
 };
 
+//Dodavanje nove knjige i čuvanje u localStorage
+const dodajKnjiguForm = document.getElementById('dodaj-knjigu-form');
+dodajKnjiguForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const novaKnjiga = {
+        identifikator: knjige.length > 0 ? knjige[knjige.length-1].identifikator + 1 : 1,
+        nazivKnjige: document.getElementById('naziv').value,
+        datumStampanja: document.getElementById('datum').value,
+        url: document.getElementById('url').value,
+        opisKnjige: document.getElementById('opis').value,
+        popularnost: parseInt(document.getElementById('popularnost').value)
+    };
+
+    knjige.push(novaKnjiga);
+    localStorage.setItem('knjige', JSON.stringify(knjige));
+
+    prikaziKnjige();
+    dodajKnjiguForm.reset();
+    alert(`Knjiga "${novaKnjiga.nazivKnjige}" je dodata.`);
+});
+
+
 tabelaTijelo.addEventListener('click', (e) => {
     if (e.target.classList.contains('obrisi-btn')) {
         const id = e.target.getAttribute('data-id');
@@ -51,32 +74,13 @@ tabelaTijelo.addEventListener('click', (e) => {
     }
 });
 
-const forma = document.getElementById('dodaj-knjigu-form');
+document.addEventListener('DOMContentLoaded', () => {
+    const knjigeLS = localStorage.getItem('knjige');
+    if (knjigeLS) {
+        knjige = JSON.parse(knjigeLS);
+    } else {
+        knjige = [];
+    }
 
-if (forma) {
-    forma.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        const noviId = knjige.length > 0 ? knjige[knjige.length - 1].identifikator + 1 : 1;
-
-        const novaKnjiga = new Book(
-            noviId,
-            document.getElementById('naziv').value,
-            document.getElementById('datum').value,
-            document.getElementById('url').value,
-            document.getElementById('opis').value,
-            parseInt(document.getElementById('popularnost').value)
-        );
-
-        knjige.push(novaKnjiga);
-
-        localStorage.setItem('knjige', JSON.stringify(knjige));
-
-        prikaziKnjige();
-        forma.reset();
-
-        alert(`Nova knjiga "${novaKnjiga.nazivKnjige}" je uspešno dodata!`);
-    });
-}
-
-document.addEventListener('DOMContentLoaded', prikaziKnjige);
+    prikaziKnjige();
+});
